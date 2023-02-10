@@ -1,6 +1,6 @@
 resource "aws_key_pair" "mykey" {
   key_name   = "${var.keypair}"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxoqfP6la1XfdLlVtIwhN36i8FzMTh16d7EJZ/ivfDcAzjuWJoXYR7gTSrTGQ5oJuQ/eIm4LmRY+droxzNf7/BnO/6UtEWigNPQFKVNGvefkucpUz2gL0q56rL20eIKVnXmKm5e5qg2U8DIqx/bULxGaFJoDSP288Dd/6KUGkXXgQLlUHRChJbMJVE+r6lqK/mOD4CC8gvRPXwmvRRjLRcChxhLQXsCKOR4CTV4Eh+iM+PDo/wFnzjFcRqBvyXf/0i0+bAyCOpISxTQRecE2ieCsbA09vNOkukwrF1mJZ7L149K4cT8CMoCsy0QCgBLLSDgvptV6Wr0hBPS9T3eeil imported-openssh-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCMt1ayTLq49f3fS9dTmm3V97EuKiJSNUCHcw7sZsrkcwhixtOG/vI6MAhL+1TDBbubu9vXUAO7npeTThAaZO+1ztk5XEyYsGEJBVwckwWUlp6tw28UkHz7AG0WJLoARzOH1xW/BicXlk/qkpykaik52J3KAfMVTRuW0DzWmxBM0YHmJshonk4Ebo8r6/DFiisbowi24tGJEDnAqe0H9MY+qiDJJlrVi3iGUiCMGON1AZJvnvVPCTlX00iBNgVCux3mIaU1nvICmcf658NSQMgqGglbBR0bQrtoOdkJXPR0CGC/ENjiKWWXJHeD0X6w5HC4AkXKpK7Ek1UThiWOanPn imported-openssh-key"
 }
 
 resource "aws_iam_role" "nodes" {

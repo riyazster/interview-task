@@ -1,8 +1,8 @@
 variable "region" {
-    default = "us-east-1"
+    default = "us-east-2"
 }
 variable "customer" {
-    default = "toptal"
+    default = "riayz"
 }
 variable "env" {
     default = "dev"
@@ -22,15 +22,15 @@ variable "private_subnets" {
 
 variable "availability_zones" {
     type    = list
-    default = ["us-east-1a","us-east-1b"]    
+    default = ["us-east-2a","us-east-2b"]    
 }
 
 variable "keypair" {
-    default = "toptal-key"
+    default = "riayz-key"
 }
 
 variable "cluster_name" {
-    default = "toptal-eks"
+    default = "riayz-eks"
 }
 
 variable "public_nodes_capacity" {

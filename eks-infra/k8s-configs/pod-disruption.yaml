@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: nginx-pdb
+  namespace: casestudy-ns
+spec:
+  minAvailable: 4
+  selector:
+    matchLabels:
+      app: nginx
