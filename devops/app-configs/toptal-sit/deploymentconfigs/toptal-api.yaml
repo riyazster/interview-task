@@ -1,0 +1,52 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: toptal-api
+  name: toptal-api
+  namespace: toptal-sit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toptal-api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: toptal-api
+    spec:
+      nodeSelector:
+        env: public
+      containers:
+        - image: "shan5a6/toptal-api:latest"
+          name: toptal-api
+          env:
+          - name: DBUSER
+            valueFrom:
+              configMapKeyRef:
+                key: DBUSER
+                name: appconfigs
+          - name: DB
+            valueFrom:
+              configMapKeyRef:
+                key: DB
+                name: appconfigs
+          - name: DBPASS
+            valueFrom:
+              secretKeyRef:
+                key: DBPASS
+                name: postgres-secret
+          - name: DBHOST
+            valueFrom:
+              configMapKeyRef:
+                key: DBHOST
+                name: appconfigs
+          - name: DBPORT
+            valueFrom:
+              configMapKeyRef:
+                key: DBPORT
+                name: appconfigs

@@ -1,0 +1,16 @@
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ name: toptal-web
+ namespace: toptal-prod
+ labels:
+    app: toptal-web 
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: toptal-web
+ minReplicas: 1
+ maxReplicas: 10
+ targetCPUUtilizationPercentage: 50

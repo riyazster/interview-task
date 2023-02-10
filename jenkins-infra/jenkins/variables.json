@@ -1,0 +1,5 @@
+{
+  "region": "us-east-1",
+  "source_ami": "ami-0a8b4cd432b1c3063",
+  "ami_name": "jenkins-image3"
+}

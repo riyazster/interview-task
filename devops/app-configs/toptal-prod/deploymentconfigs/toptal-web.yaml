@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: toptal-web
+  name: toptal-web
+  namespace: toptal-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toptal-web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: toptal-web
+    spec:
+      nodeSelector:
+        env: public
+      containers:
+      - image: shan5a6/toptal-web:latest
+        name: toptal-web
+        env:
+          - name: API_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: API_HOST
+                name: appconfigs
+status: {}

@@ -1,0 +1,37 @@
+# add prometheus Helm repo
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+# add grafana Helm repo
+helm repo add grafana https://grafana.github.io/helm-charts
+
+# kubectl create namespace prometheus
+
+# helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+# helm install prometheus prometheus-community/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+
+The Prometheus server can be accessed via port 80 on the following DNS name from within your cluster:
+prometheus-server.prometheus.svc.cluster.local
+
+# kubectl get all -n prometheus
+
+# kubectl port-forward -n prometheus deploy/prometheus-server 8080:9090
+
+Create YAML file called grafana.yaml
+
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://prometheus-server.prometheus.svc.cluster.local
+      access: proxy
+      isDefault: true
+
+# helm install grafana grafana/grafana --namespace prometheus --set persistence.storageClassName="gp2" --set persistence.enabled=true --set adminPassword='EKS!sAWSome' --values grafana.yaml --set service.type=LoadBalancer
+
+Get the password for the console
+# kubectl get secret --namespace prometheus grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+Make sure that you are importing dashboards 3119 and 6417 & make sure you see data source as prometheus

@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  # become: true
+  connection: local
+  vars_files:
+    - vars/applications.yaml
+    - vars/secrets.yaml
+  roles:
+    - onboarding-app
