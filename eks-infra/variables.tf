@@ -30,7 +30,7 @@ variable "keypair" {
 }
 
 variable "cluster_name" {
-    default = "riayz-eks"
+    default = "riyaz-eks"
 }
 
 variable "public_nodes_capacity" {
